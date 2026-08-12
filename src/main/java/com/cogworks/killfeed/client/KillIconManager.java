@@ -1,8 +1,9 @@
 package com.cogworks.killfeed.client;
 
-import com.google.gson.JsonObject;
-import com.mojang.serialization.JsonOps;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
 import net.minecraft.util.profiling.ProfilerFiller;
 
@@ -15,15 +16,16 @@ public class KillIconManager extends SimpleJsonResourceReloadListener {
             ResourceLocation.fromNamespaceAndPath("killfeed", "textures/kill_icons/unknown.png");
 
     public KillIconManager() {
-        super(new com.google.gson.Gson(), "kill_icons");
+        super(new Gson(), "kill_icons");
     }
 
     @Override
-    protected void apply(Map<ResourceLocation, JsonObject> entries, net.minecraft.server.packs.resources.ResourceManager manager, ProfilerFiller profiler) {
+    protected void apply(Map<ResourceLocation, JsonElement> entries, ResourceManager manager, ProfilerFiller profiler) {
         DEATH_KEY_TO_ICON.clear();
-        for (JsonObject entry : entries.values()) {
-            String deathKey = entry.get("death_key").getAsString();
-            ResourceLocation texture = ResourceLocation.parse(entry.get("texture").getAsString());
+        for (Map.Entry<ResourceLocation, JsonElement> entry : entries.entrySet()) {
+            var json = entry.getValue().getAsJsonObject();
+            String deathKey = json.get("death_key").getAsString();
+            ResourceLocation texture = ResourceLocation.parse(json.get("texture").getAsString());
             DEATH_KEY_TO_ICON.put(deathKey, texture);
         }
     }
