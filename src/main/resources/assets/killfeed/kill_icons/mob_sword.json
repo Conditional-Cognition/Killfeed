@@ -1,0 +1,6 @@
+{
+  "death_key": "mob",
+  "weapon_tags": { "1": "minecraft:swords" },
+  "texture0": "killfeed:textures/kill_icons/zombie.png",
+  "texture1": "killfeed:textures/kill_icons/sword.png"
+}

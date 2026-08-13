@@ -8,7 +8,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
-public record KillFeedPayload(String victimName, String killerName, String deathKey) implements CustomPacketPayload {
+public record KillFeedPayload(String victimName, String killerName, String deathKey, String weaponItemId) implements CustomPacketPayload {
     public static final Type<KillFeedPayload> TYPE =
             new Type<>(ResourceLocation.fromNamespaceAndPath(Killfeed.MODID, "kill_feed_entry"));
 
@@ -16,6 +16,7 @@ public record KillFeedPayload(String victimName, String killerName, String death
             ByteBufCodecs.STRING_UTF8, KillFeedPayload::victimName,
             ByteBufCodecs.STRING_UTF8, KillFeedPayload::killerName,
             ByteBufCodecs.STRING_UTF8, KillFeedPayload::deathKey,
+            ByteBufCodecs.STRING_UTF8, KillFeedPayload::weaponItemId,
             KillFeedPayload::new
     );
 

@@ -1,0 +1,7 @@
+{
+  "death_key": "player",
+  "weapon_tags": {
+    "1": "minecraft:swords"
+  },
+  "texture0": "killfeed:textures/kill_icons/sword.png"
+}

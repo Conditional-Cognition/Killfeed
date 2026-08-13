@@ -1,0 +1,5 @@
+{
+  "death_key": "arrow",
+  "weapon_items": { "1": "minecraft:bow" },
+  "texture0": "killfeed:textures/kill_icons/bow.png"
+}

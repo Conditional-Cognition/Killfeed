@@ -1,0 +1,5 @@
+{
+  "death_key": "arrow",
+  "weapon_items": { "1": "minecraft:crossbow" },
+  "texture0": "killfeed:textures/kill_icons/crossbow_arrow.png"
+}

@@ -1,0 +1,5 @@
+{
+  "death_key": "fireworks",
+  "weapon_items": { "1": "minecraft:crossbow" },
+  "texture0": "killfeed:textures/kill_icons/crossbow_firework.png"
+}

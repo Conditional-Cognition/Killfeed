@@ -42,7 +42,16 @@ public class KillFeedOverlay {
         RECENT_DEATH_MESSAGES.add(payload.deathKey());
 
         boolean ownKill = isLocalPlayer(payload.killerName());
-        var icon = KillIconManager.getIcon(payload.deathKey());
+
+        net.minecraft.world.item.Item weaponItem = null;
+        if (!payload.weaponItemId().isEmpty()) {
+            var id = net.minecraft.resources.ResourceLocation.tryParse(payload.weaponItemId());
+            if (id != null) {
+                weaponItem = net.minecraft.core.registries.BuiltInRegistries.ITEM.getOptional(id).orElse(null);
+            }
+        }
+
+        var icon = KillIconManager.getIcon(payload.deathKey(), weaponItem);
         ENTRIES.add(new Entry(payload.killerName(), payload.victimName(), icon,
                 System.currentTimeMillis() + DISPLAY_DURATION_MS, ownKill));
         enforceCap();
