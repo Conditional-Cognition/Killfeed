@@ -1,0 +1,7 @@
+{
+  "death_key": "player",
+  "weapon_tags": {
+    "1": "minecraft:pickaxes"
+  },
+  "texture0": "killfeed:textures/kill_icons/pickaxe.png"
+}

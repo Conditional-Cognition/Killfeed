@@ -1,0 +1,7 @@
+{
+  "death_key": "player",
+  "weapon_tags": {
+    "1": "minecraft:shovels"
+  },
+  "texture0": "killfeed:textures/kill_icons/shovel.png"
+}
