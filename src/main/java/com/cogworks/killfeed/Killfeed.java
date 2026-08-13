@@ -36,6 +36,7 @@ public class Killfeed {
         );
     }
 
+    @SuppressWarnings("IfCanBeSwitch")
     @SubscribeEvent
     public void onLivingDeath(LivingDeathEvent event) {
         LivingEntity victim = event.getEntity();
@@ -50,6 +51,16 @@ public class Killfeed {
                 ? event.getSource().getEntity().getDisplayName().getString()
                 : "";
         String deathKey = event.getSource().getMsgId();
+
+        if (deathKey.equals("explosion") && event.getSource().getEntity() != null) {
+            if (event.getSource().getEntity() instanceof net.minecraft.world.entity.monster.Creeper) {
+                deathKey = "explosion_creeper";
+            } else if (event.getSource().getEntity() instanceof net.minecraft.world.entity.item.PrimedTnt) {
+                deathKey = "explosion_tnt";
+            } else if (event.getSource().getEntity() instanceof net.minecraft.world.entity.boss.enderdragon.EndCrystal) {
+                deathKey = "explosion_crystal";
+            } else { deathKey = "explosion_misc"; }
+        }
 
         String weaponItemId = "";
         if (event.getSource().getEntity() instanceof LivingEntity attacker) {
