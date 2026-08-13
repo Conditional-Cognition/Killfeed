@@ -1,6 +1,7 @@
 package com.cogworks.killfeed;
 
-import com.cogworks.killfeed.network.KillFeedPayload;
+import com.cogworks.killfeed.client.*;
+import com.cogworks.killfeed.network.*;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.player.Player;
@@ -21,6 +22,7 @@ public class Killfeed {
     public Killfeed(IEventBus modEventBus, @SuppressWarnings("unused") ModContainer modContainer) {
         NeoForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::onRegisterPayloads);
+        modContainer.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT, Config.SPEC);
     }
 
     private void onRegisterPayloads(RegisterPayloadHandlersEvent event) {
@@ -29,7 +31,7 @@ public class Killfeed {
                 KillFeedPayload.TYPE,
                 KillFeedPayload.STREAM_CODEC,
                 (payload, context) -> context.enqueueWork(() ->
-                        com.cogworks.killfeed.client.KillFeedOverlay.addEntry(payload))
+                        KillFeedDisplay.handle(payload))
         );
     }
 
