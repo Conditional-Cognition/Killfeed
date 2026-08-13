@@ -48,7 +48,7 @@ public class Killfeed {
         String killerName = event.getSource().getEntity() != null
                 ? event.getSource().getEntity().getDisplayName().getString()
                 : "";
-        String deathKey = event.getSource().getLocalizedDeathMessage(victim).getString();
+        String deathKey = event.getSource().getMsgId();
 
         KillFeedPayload payload = new KillFeedPayload(victimName, killerName, deathKey);
 
