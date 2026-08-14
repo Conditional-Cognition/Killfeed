@@ -1,5 +1,5 @@
 {
   "death_key": "arrow_pillager",
   "texture0": "killfeed:textures/kill_icons/illager.png",
-  "texture1": "killfeed:textures/kill_icons/crossbow.png"
+  "texture1": "killfeed:textures/kill_icons/crossbow_arrow.png"
 }
