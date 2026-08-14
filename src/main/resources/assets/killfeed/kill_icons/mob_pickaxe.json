@@ -1,0 +1,6 @@
+{
+  "death_key": "mob_zombie",
+  "weapon_tags": { "1": "minecraft:pickaxes" },
+  "texture0": "killfeed:textures/kill_icons/zombie.png",
+  "texture1": "killfeed:textures/kill_icons/pickaxe.png"
+}

@@ -1,4 +1,4 @@
 {
-  "death_key": "mob",
+  "death_key": "mob_zombie",
   "texture0": "killfeed:textures/kill_icons/zombie.png"
 }

@@ -1,0 +1,6 @@
+{
+  "death_key": "mob_illager",
+  "weapon_tags": { "1": "minecraft:axes" },
+  "texture0": "killfeed:textures/kill_icons/illager.png",
+  "texture1": "killfeed:textures/kill_icons/axe.png"
+}

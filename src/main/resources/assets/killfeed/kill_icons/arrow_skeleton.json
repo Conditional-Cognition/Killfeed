@@ -1,0 +1,5 @@
+{
+  "death_key": "arrow_skeleton",
+  "texture0": "killfeed:textures/kill_icons/skeleton.png",
+  "texture1": "killfeed:textures/kill_icons/bow.png"
+}

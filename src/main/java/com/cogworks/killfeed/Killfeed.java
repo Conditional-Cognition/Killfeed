@@ -62,6 +62,32 @@ public class Killfeed {
             } else { deathKey = "explosion_misc"; }
         }
 
+        if (deathKey.equals("mob")) {
+            var attackerEntity = event.getSource().getEntity();
+            if (attackerEntity instanceof Player) {
+                deathKey = "player";
+            } else if (attackerEntity instanceof net.minecraft.world.entity.monster.Zombie) {
+                deathKey = "mob_zombie";
+            } else if (attackerEntity instanceof net.minecraft.world.entity.monster.Spider) {
+                deathKey = "mob_spider";
+            } else if (attackerEntity instanceof net.minecraft.world.entity.monster.EnderMan) {
+                deathKey = "mob_enderman";
+            } else if (attackerEntity instanceof net.minecraft.world.entity.monster.AbstractIllager) {
+                deathKey = "mob_illager";
+            }
+        }
+
+        if (deathKey.equals("arrow")) {
+            var attackerEntity = event.getSource().getEntity();
+            if (attackerEntity == null) {
+                deathKey = "arrow_dispenser";
+            } else if (attackerEntity instanceof net.minecraft.world.entity.monster.AbstractSkeleton) {
+                deathKey = "arrow_skeleton";
+            } else if (attackerEntity instanceof net.minecraft.world.entity.monster.AbstractIllager) {
+                deathKey = "arrow_pillager";
+            }
+        }
+
         String weaponItemId = "";
         if (event.getSource().getEntity() instanceof LivingEntity attacker) {
             var weapon = attacker.getMainHandItem();

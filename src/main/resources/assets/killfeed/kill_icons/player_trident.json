@@ -1,0 +1,7 @@
+{
+  "death_key": "player",
+  "weapon_items": {
+    "1": "minecraft:trident"
+  },
+  "texture0": "killfeed:textures/kill_icons/trident.png"
+}
